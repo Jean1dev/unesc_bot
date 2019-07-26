@@ -1,0 +1,24 @@
+{
+  "name": "unesc_bot",
+  "version": "1.0.0",
+  "description": "tcc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jean1dev/unesc_bot.git"
+  },
+  "author": "@Jean",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jean1dev/unesc_bot/issues"
+  },
+  "homepage": "https://github.com/Jean1dev/unesc_bot#readme",
+  "dependencies": {
+    "botbuilder": "^3.14.1",
+    "express": "^4.17.1"
+  }
+}
