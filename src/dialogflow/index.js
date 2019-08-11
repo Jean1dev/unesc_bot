@@ -1,5 +1,6 @@
 const builder = require('botbuilder')
 const { bot } = require('../createBot')
+const intents = require('../createBot/luis')
 
 function iniciarDialogoSaudacao(session) {
     session.beginDialog('/saudacao')
@@ -10,9 +11,12 @@ function iniciarDialogoQuestionamentosSobreCurso(session) {
 }
 
 function testsQnaMaker(session) {
-    console.log(`working`)
     session.beginDialog('/tests')
 }
+
+intents.matches('Cursos', session => {
+    session.send('LUIS works')
+})
 
 bot.dialog('/', 
     // session => builder.Prompts.text(session, `Oi, qual seu Nome`)
@@ -21,7 +25,7 @@ bot.dialog('/',
     //     session.send(`Oi ${results.response}`)
     //     testsQnaMaker(session)
     // }
-    testsQnaMaker
+    intents
 )
 
 require('./waterfalls/cursos')
