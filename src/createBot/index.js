@@ -1,4 +1,5 @@
 const builder = require('botbuilder')
+const { brazilianQnaMakerTools } = require('./qnaMaker')
 
 const connector = new builder.ChatConnector({
     appId: '',
@@ -6,5 +7,7 @@ const connector = new builder.ChatConnector({
 })
 
 const bot = new builder.UniversalBot(connector)
+
+bot.library(brazilianQnaMakerTools.createLibrary())
 
 module.exports = { bot, connector }
