@@ -1,33 +1,26 @@
-const builder = require('botbuilder')
+// const builder = require('botbuilder')
 const { bot } = require('../createBot')
 const intents = require('../createBot/luis')
 
-function iniciarDialogoSaudacao(session) {
-    session.beginDialog('/saudacao')
-}
+// function iniciarDialogoSaudacao(session) {
+//     session.beginDialog('/saudacao')
+// }
 
-function iniciarDialogoQuestionamentosSobreCurso(session) {
-    session.beginDialog('/cursos')
-}
+// function iniciarDialogoQuestionamentosSobreCurso(session) {
+//     session.beginDialog('/cursos')
+// }
 
-function testsQnaMaker(session) {
-    session.beginDialog('/tests')
-}
+// function testsQnaMaker(session) {
+//     session.beginDialog('/tests')
+// }
 
-intents.matches('Cursos', session => {
-    session.send('LUIS works')
-})
+// intents.matches('Cursos', session => {
+//     session.send('LUIS works')
+// })
 
-bot.dialog('/', 
-    // session => builder.Prompts.text(session, `Oi, qual seu Nome`)
-    // ,
-    // (session, results) => {
-    //     session.send(`Oi ${results.response}`)
-    //     testsQnaMaker(session)
-    // }
-    intents
-)
+bot.dialog('/', intents)
 
-require('./waterfalls/cursos')
-require('./waterfalls/saudacao')
+// require('./waterfalls/cursos')
+// require('./waterfalls/saudacao')
 require('./waterfalls/tests')
+require('./waterfalls/institucional')
