@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uniebu-bot
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: "25%"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tcc-prot
+  template: 
+    metadata:             
+      labels:
+        app: tcc-prot
+    spec:            
+      containers:
+      - name: tcc-prot
+        image: jeanlucafp/uniedubot:latest  
+        env:
+          - name: TELEGRAM_API_KEY
+            value: <TELEGRAM_API_KEY>
