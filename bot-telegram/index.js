@@ -4,7 +4,8 @@ const Telegraf = require('telegraf')
 const session = require('telegraf/session')
 const axios = require('axios')
 
-const http = axios.create({ baseURL: 'http://api-watson.herokuapp.com/assistant' })
+const baseURL = 'http://164.90.255.59:8082/assistant' // 'http://api-watson.herokuapp.com/assistant'
+const http = axios.create({ baseURL })
 
 const bot = new Telegraf(process.env.TELEGRAM_API_KEY)
 
@@ -40,8 +41,12 @@ bot.on('text', context => {
         saveMessage: false
     }).then(({ data }) => {
         console.log(data)
-        if (data.length)
-            context.reply(data[0].text)
+        if (!data.length) {
+            context.reply('Ainda nao sei lidar com essa situação, tente de outra forma')
+            return
+        }
+
+        data.forEach(recognizer => context.reply(recognizer.text))
 
     }).catch(error => {
         if (error.response) {
