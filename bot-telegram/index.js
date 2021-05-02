@@ -1,5 +1,6 @@
 require('dotenv').config()
 console.log(process.env.TELEGRAM_API_KEY)
+const botResponse = require('./functions/bot-response')
 const Telegraf = require('telegraf')
 const session = require('telegraf/session')
 const axios = require('axios')
@@ -46,8 +47,7 @@ bot.on('text', context => {
             return
         }
 
-        data.forEach(recognizer => context.reply(recognizer.text))
-
+        botResponse(data, context)
     }).catch(error => {
         if (error.response) {
             console.log(error.response.data)
