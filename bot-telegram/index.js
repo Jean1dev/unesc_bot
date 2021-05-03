@@ -4,6 +4,7 @@ const botResponse = require('./functions/bot-response')
 const Telegraf = require('telegraf')
 const session = require('telegraf/session')
 const axios = require('axios')
+const Markup = require('telegraf/markup')
 
 const baseURL = 'http://164.90.255.59:8082/assistant' // 'http://api-watson.herokuapp.com/assistant'
 const http = axios.create({ baseURL })
@@ -16,7 +17,7 @@ bot.use(session())
 
 bot.start(async context => {
     const nome = context.update.message.from.first_name
-    await context.replyWithMarkdown(`*Olá, ${nome}!*\n Sou o Unibot vou te ajudar com algumas duvidas sobre o Uniedu`)
+    await context.replyWithMarkdown(`*Olá, ${nome}!*\n Sou o Unibot vou te ajudar com algumas duvidas sobre o Uniedu`,  Markup.removeKeyboard().extra())
     await context.reply(`só um poquinho deixa eu criar sua sessão aqui`)
 
     const { data } = await http.get('session')
