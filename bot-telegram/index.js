@@ -6,7 +6,7 @@ const session = require('telegraf/session')
 const axios = require('axios')
 const Markup = require('telegraf/markup')
 
-const baseURL = 'http://164.90.255.59:8082/assistant' // 'http://api-watson.herokuapp.com/assistant'
+const baseURL = 'http://165.227.253.109:8082/assistant' // 'http://api-watson.herokuapp.com/assistant'
 const http = axios.create({ baseURL })
 
 const bot = new Telegraf(process.env.TELEGRAM_API_KEY)
