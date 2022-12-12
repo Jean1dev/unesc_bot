@@ -21,7 +21,7 @@
     "botbuilder": "^3.16.0",
     "botbuilder-cognitiveservices": "^1.1.0",
     "dotenv-extended": "^2.4.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "formflowbotbuilder": "^0.1.4",
     "html-entities": "^1.2.1"
   }
